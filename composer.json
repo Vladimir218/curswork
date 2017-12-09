@@ -1,0 +1,20 @@
+{
+    "name": "user/curswork",
+    "description": "office",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kamenev",
+            "email": "kamenev@mts.by"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload":{
+        "psr-4":{
+            "app\\":"app"
+        }
+    }
+
+}
