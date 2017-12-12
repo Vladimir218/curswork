@@ -12,7 +12,9 @@ namespace app\core;
 class Router
 {
     public $urls=[
-        '/'=>['controller'=>'SiteController', 'action'=>'actionIndex'],
+        '/'=>['controller'=>'LoginController', 'action'=>'actionLogin'],
+        '/?'=>['controller'=>'LoginController', 'action'=>'actionLogin'],
+        '/logout'=>['controller'=>'LoginController', 'action'=>'actionLogout'],
         '/about'=>['controller'=>'SiteController', 'action'=>'about'],
         '/contact'=>['controller'=>'SiteController', 'action'=>'contact'],
         '/calc'=>['controller'=>'SiteController', 'action'=>'calc'],
@@ -26,6 +28,8 @@ class Router
 
     public function route(){
      $url = $_SERVER['REQUEST_URI'];
+
+     //echo $_SERVER['REQUEST_URI'];
      foreach ($this->urls as $key=>$value){
          if($url == $key){
              $value['controller'] =
@@ -36,9 +40,13 @@ class Router
 
      foreach ($this->patterns as $pattern =>$value){
 
+
          preg_match($pattern, $url, $match);
          if(!empty($match)){
              foreach ($match as $key=>$value2){
+                // print_r($key);
+                 //print_r($value2);
+                 //echo "</br>";
 
                  //$value['controller'] = "app\\controllers\\".$value['controller'];
                  if(is_int($key)){

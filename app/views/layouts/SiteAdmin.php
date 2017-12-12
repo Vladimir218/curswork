@@ -62,7 +62,7 @@
                                 <li><a href="typography.html">Регистрация</a></li>
                             </ul>
                         </li>
-                        <li><a href="?action=logout">Выход</a></li>
+                        <li><a href="logout">Выход</a></li>
                         <li><a href="#">Пользователь<br><?=$_SESSION['user']?></a></li>
                     </ul>
 

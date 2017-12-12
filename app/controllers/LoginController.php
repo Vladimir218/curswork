@@ -15,6 +15,7 @@ class LoginController extends Controller
 {
     public $LoginOuy = "loginform";
     public function actionLogin(){
+        //echo "Да";
         $_SESSION['layouts']="Login";
         if($_SERVER['REQUEST_METHOD']=='POST'){
             if(count($_POST)==2){
@@ -26,37 +27,46 @@ class LoginController extends Controller
                     $_SESSION['user']=$res[0]['surname']." ".mb_substr($res[0]['name'], 0, 1,"UTF-8").".".mb_substr($res[0]['patronymic'], 0, 1,"UTF-8").".";
                     if ($res[0]['access']==1) {
                         $_SESSION['layouts']="SiteAdmin";
+                        $_SESSION['body']="banner";
+                        return "true";
                     }elseif($res[0]['access']==2){
-                        $this->layout = "SiteUser";
                         $_SESSION['layouts']="SiteUser";
+                        $_SESSION['body']="banner";
+                        return "true";
                     }else{
                         $_SESSION['layouts']="SiteUser1";
+                        $_SESSION['body']="banner";
+                        return "true";
                     }
-                   header("Location: ". $_SERVER["REQUEST_URI"]);
-                }
+                }else{
+                    $_SESSION['body']="loginform";
+                    return "true";
+                };
             }elseif(count($_POST)==7){
                 $login = $_POST['login'];
                 $user = new User();
                 $res= $user->find(['login'=>$login]);
                 if(empty($res)) {
                     if ($_POST['password']===$_POST['password1']){
-
                         $user->load($_POST);
                         $user->save();
-                        header("Location: ". $_SERVER["REQUEST_URI"]);
+                        return "true";
                     }else{
-                        $this->LoginOuy = "WrongPass";
+                        $_SESSION['body']="WrongPass";
+                        return "true";
                     }
                 }else{
-                    $this->LoginOuy = "existUser";
+                    $_SESSION['body']="existUser";
+                    return "true";
                 };
             };
-        }
-        $this->render('Login',$this->LoginOuy);
+        }else{
+            $_SESSION['body']="loginform";
+            return "true";
+        };
     }
     public function actionLogout(){
         unset($_SESSION['user']);
-        //print_r($_SERVER["HTTP_REFERER"]);
         header("Location: ". $_SERVER["HTTP_REFERER"]);
 
     }
