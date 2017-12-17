@@ -18,7 +18,7 @@ $include_file = __DIR__."/".str_replace("\\", "/", $route['controller'].".php");
 
 include $include_file;
 $controller = new $route['controller']();
-
+//echo $route['action'];
 if(isset($_SESSION['user'])){
 
 //echo $route['action'];
@@ -32,8 +32,9 @@ if(isset($_SESSION['user'])){
         }
 
 }else{
-
-     $controller->{$route['action']}();
+   // echo $route['action'];
+    $controller->{$route['action']}();
     $body =$_SESSION['body'];
+    //echo $body;
 }
 $controller->render($_SESSION['layouts'],$body);

@@ -8,7 +8,7 @@
         <div class="resp-tabs-container">
             <div class="tab-1 resp-tab-content">
                 <div class="login-top">
-                    <form action="" method="post">
+                    <form action="/Login/" method="post">
                         <input type="text" name="login" class="name" placeholder="Login" required=""/>
                         <input type="password" name="password" class="password" placeholder="Password" required=""/>
 
@@ -27,7 +27,7 @@
             </div>
             <div class="tab-1 resp-tab-content">
                 <div class="login-top sign-top">
-                    <form action="" method="post">
+                    <form action="/Login/" method="post">
                         <input type="text" name="login" class="name" placeholder="Login" required=""/>
                         <input type="text" name="surname" class="name" placeholder="Фамилия" required=""/>
                         <input type="text" name="name" class="name" placeholder="Имя" required=""/>

@@ -445,6 +445,7 @@ ul.dropdown-menu {
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
+
 .hvr-shutter-in-vertical:before {
   content: "";
   position: absolute;

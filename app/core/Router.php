@@ -14,7 +14,11 @@ class Router
     public $urls=[
         '/'=>['controller'=>'LoginController', 'action'=>'actionLogin'],
         '/?'=>['controller'=>'LoginController', 'action'=>'actionLogin'],
-        '/logout'=>['controller'=>'LoginController', 'action'=>'actionLogout'],
+        '/Login/?'=>['controller'=>'LoginController', 'action'=>'actionLogin'],
+        '/Login/'=>['controller'=>'LoginController', 'action'=>'actionLogin'],
+        '/logout/'=>['controller'=>'LoginController', 'action'=>'actionLogout'],
+        '/InLettersReg/'=>['controller'=>'SiteController', 'action'=>'actionRegistration'],
+        '/InLettersFind/'=>['controller'=>'SiteController', 'action'=>'actionInFind'],
         '/about'=>['controller'=>'SiteController', 'action'=>'about'],
         '/contact'=>['controller'=>'SiteController', 'action'=>'contact'],
         '/calc'=>['controller'=>'SiteController', 'action'=>'calc'],

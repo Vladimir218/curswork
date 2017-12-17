@@ -46,6 +46,7 @@ class LoginController extends Controller
                 $login = $_POST['login'];
                 $user = new User();
                 $res= $user->find(['login'=>$login]);
+                //print_r($res);
                 if(empty($res)) {
                     if ($_POST['password']===$_POST['password1']){
                         $user->load($_POST);
@@ -66,8 +67,12 @@ class LoginController extends Controller
         };
     }
     public function actionLogout(){
+        //echo "logout";
         unset($_SESSION['user']);
-        header("Location: ". $_SERVER["HTTP_REFERER"]);
+        $_SESSION['layouts']="Login";
+        $_SESSION['body']="loginform";
+        return "true";
+        //header("Location: ". $_SERVER["HTTP_REFERER"]);
 
     }
 }

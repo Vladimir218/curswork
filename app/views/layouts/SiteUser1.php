@@ -42,7 +42,7 @@
                         <li class="active"><a href="index.html">Домашняя<br>страница</a></li>
                         <li class="active"><a href="index.html">Входящие<br>письма</a></li>
                         <li class="active"><a href="index.html">Исходящие<br>письма</a></li>
-                        <li><a href="logout">Выход</a></li>
+                        <li><a href="/logout/">Выход</a></li>
                         <li><a href="#">Пользователь<br><?=$_SESSION['user']?></a></li>
                     </ul>
 

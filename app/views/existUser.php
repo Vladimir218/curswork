@@ -6,7 +6,8 @@
         </font>
     </p>
     <div class="login-top sign-top">
-
-        <input type="submit" value="Попробуйте зарегистрироваться еще раз">
+        <form action="/1">
+            <input type="submit" value="Попробуйте зарегистрироваться еще раз">
+        </form>
     </div>
 </form>
