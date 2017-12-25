@@ -60,8 +60,15 @@ abstract class Model
         return $res;
     }
 
-    public function getAll(){
-        $sql = "select * from ".$this->getTable();
+    public function getAll($arr=null){
+        //print_r($arr);
+        if(!empty($arr)){
+            $sql = "select * from " . $this->getTable()." ORDER BY BINARY(". $arr['fild'].") " .$arr['direction'];
+            //echo $sql;
+        }
+        else {
+            $sql = "select * from " . $this->getTable();
+        }
         $res = $this->connection->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         return $res;
 
@@ -96,7 +103,7 @@ abstract class Model
 public function get(){
         $tmp =$this->connection->query("DESC ".$this->getTable())->fetchAll();
         $fields= [];
-       // print_r($tmp);
+
         foreach ($tmp as $item) {
             $fields[] = $item['Field'];
         }

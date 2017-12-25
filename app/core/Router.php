@@ -18,6 +18,7 @@ class Router
         '/Login/'=>['controller'=>'LoginController', 'action'=>'actionLogin'],
         '/logout/'=>['controller'=>'LoginController', 'action'=>'actionLogout'],
         '/InLettersReg/'=>['controller'=>'SiteController', 'action'=>'actionRegistration'],
+        '/InLettersReg/Reset/'=>['controller'=>'SiteController', 'action'=>'actionFormReset'],
         '/InLettersFind/'=>['controller'=>'SiteController', 'action'=>'actionInFind'],
         '/about'=>['controller'=>'SiteController', 'action'=>'about'],
         '/contact'=>['controller'=>'SiteController', 'action'=>'contact'],
